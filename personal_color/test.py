@@ -1,7 +1,7 @@
 from cgitb import grey
 from re import S
 from turtle import shape
-from cv2 import waitKey
+# from cv2 import waitKey
 import dlib 
 import cv2
 import numpy as np
@@ -10,9 +10,19 @@ from imutils import face_utils
 # 얼굴인식
 detector = dlib.get_frontal_face_detector()
 # 얼굴의 68개 landmark 찾기
-predictor = dlib.shape_predictor('/Users/yanghyeok/Desktop/ShowMeTheColor-master/res/shape_predictor_68_face_landmarks.dat')
+
+# Mac
+# predictor = dlib.shape_predictor('/Users/yanghyeok/Desktop/ShowMeTheColor-master/res/shape_predictor_68_face_landmarks.dat')
+# Window
+predictor = dlib.shape_predictor('C:/Users/m2appl/Desktop/1/res/shape_predictor_68_face_landmarks.dat')
+
 #face detection part
-img_path = '/Users/yanghyeok/Desktop/ShowMeTheColor-master/res/test/nfall/1.jpg'
+
+# Mac
+# img_path = '/Users/yanghyeok/Desktop/ShowMeTheColor-master/res/test/nfall/1.jpg'
+# Window
+img_path = "C:/Users/m2appl/Desktop/1/res/test/nfall/3.jpg"
+
 img = cv2.imread(img_path) #이미지를 컬러로 읽어옴
 # 이미지 읽어오기
 # cv2.imshow('image', img)
@@ -35,7 +45,6 @@ face_parts = [[],[],[],[],[],[],[],[]]
 grey = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 rect = detector(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY), 1)
 # print(rect) -> rectangles[[(98, 27) (419, 348)]]
-
 # cv2.imshow("grey", grey)
 # cv2.waitKey()
 faces = rect
