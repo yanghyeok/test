@@ -74,3 +74,4 @@ for (name, (i, j)) in face_utils.FACIAL_LANDMARKS_IDXS.items():
             idx += 1
 face_parts = face_parts[1:5]
 print(face_parts[1])
+print(face_parts)
